@@ -1,22 +1,23 @@
 import string
-from random import choice, randint
+from random import randint, choice
 
 
 def generate_password():
+    password = ''
 
     while True:
 
         try:
-            user_input = (int(input('Please enter the number of characters required: ')))
-            characters = "".join(string.ascii_letters + string.punctuation + string.digits)
-            password = ''.join(choice(characters)for num in range(randint(6, user_input + 1)))
+            user_input = (int(input('How many characters for you password?: ')))
+            characters = string.ascii_letters + string.punctuation + string.digits
+            password = "".join(choice(characters) for num in range(user_input))
             return password
 
         except ZeroDivisionError:
             print('Sorry, characters cannot be zero')
         except ValueError:
-            print('Sorry, you entered an invalid value. Please enter a number no lower than 6')
+            print('You entered an invalid character. Please enter a number.')
 
 
-print('New password:', generate_password(), 'Remember to save your password')
+print('New password:', generate_password())
 
