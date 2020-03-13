@@ -9,7 +9,7 @@ def generate_password():
         try:
             user_input = (int(input('Please enter the number of characters required: ')))
             characters = "".join(string.ascii_letters + string.punctuation + string.digits)
-            password = ''.join(choice(characters)for num in range(randint(6, user_input)))
+            password = ''.join(choice(characters)for num in range(randint(6, user_input + 1)))
             return password
 
         except ZeroDivisionError:
@@ -18,5 +18,5 @@ def generate_password():
             print('Sorry, you entered an invalid value. Please enter a number no lower than 6')
 
 
-print('New password:', generate_password())
+print('New password:', generate_password(), 'Remember to save your password')
 
